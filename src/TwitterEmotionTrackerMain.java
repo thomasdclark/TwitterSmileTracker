@@ -11,8 +11,8 @@ import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 /**
- * Simple GUI application displaying the number of times smiles and frowns have
- * been tweeted since a specific point in time.
+ * Simple Twitter stream application that recieves a stream of tweets containing smiley faces
+ * and frowny faces and outputs them to the console.
  * 
  * @author Thomas Clark
  */
@@ -32,7 +32,7 @@ public final class TwitterEmotionTrackerMain {
      */
     public static void main(String[] args) throws TwitterException {
 
-        //OAuth configuration
+        //OAuth configuration using user input (to be made easier in future)
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
         Scanner scan = new Scanner(System.in);
