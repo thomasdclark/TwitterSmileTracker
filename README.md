@@ -1,4 +1,4 @@
-#TwitterEmotionTracker
+#TwitterSmileTracker
 A simple GUI application that tells you when Twitter is feeling happy, and when it is feeling sad.
 
 ##Current Functionality
