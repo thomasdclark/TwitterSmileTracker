@@ -16,12 +16,12 @@ import twitter4j.conf.ConfigurationBuilder;
  * 
  * @author Thomas Clark
  */
-public final class TETMain {
+public final class TSTMain {
 
     /**
      * Private constructor so this utility class cannot be instantiated.
      */
-    private TETMain() {
+    private TSTMain() {
     }
 
     /**
@@ -90,23 +90,23 @@ public final class TETMain {
                 .getInstance();
 
         //Create data model
-        TETDataModel model = new TETDataModel();
+        TSTDataModel model = new TSTDataModel();
 
         /*
          * Decide which view to use. Both have different displays but show the
          * same information
          */
-        //TETView1 view = new TETView1();
-        TETView2 view = new TETView2();
+        //TSTView1 view = new TETView1();
+        TSTView2 view = new TSTView2();
 
         //Create controller
-        TETController controller = new TETController(model, view);
+        TSTController controller = new TSTController(model, view);
 
         //Register observer in view
         view.registerObserver(controller);
 
         //Initialize status listener
-        StatusListener listener = new TETStatusListener(model, controller);
+        StatusListener listener = new TSTStatusListener(model, controller);
 
         //Tell stream what tweets to filter for
         FilterQuery fq = new FilterQuery();

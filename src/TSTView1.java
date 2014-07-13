@@ -13,12 +13,12 @@ import javax.swing.JTextArea;
  * 
  * @author Thomas Clark
  */
-public final class TETView1 extends JFrame implements TETView {
+public final class TSTView1 extends JFrame implements TSTView {
 
     /**
      * Controller object.
      */
-    private TETController controller;
+    private TSTController controller;
 
     /**
      * Constants
@@ -41,7 +41,7 @@ public final class TETView1 extends JFrame implements TETView {
     /**
      * Default constructor.
      */
-    public TETView1() {
+    public TSTView1() {
 
         /*
          * Call JFrame superclass with title
@@ -106,7 +106,7 @@ public final class TETView1 extends JFrame implements TETView {
      * Register argument as observer/listener of this
      */
     @Override
-    public void registerObserver(TETController controller) {
+    public void registerObserver(TSTController controller) {
         this.controller = controller;
     }
 

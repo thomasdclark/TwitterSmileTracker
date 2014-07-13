@@ -5,7 +5,7 @@ import java.util.Date;
  * 
  * @author Thomas Clark
  */
-public final class TETDataModel {
+public final class TSTDataModel {
 
     /**
      * Model variables.
@@ -36,7 +36,7 @@ public final class TETDataModel {
     /**
      * Default constructor.
      */
-    public TETDataModel() {
+    public TSTDataModel() {
         /*
          * Initialize model
          */

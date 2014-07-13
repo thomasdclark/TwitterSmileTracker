@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
  * 
  * @author Thomas Clark
  */
-public interface TETView extends ActionListener {
+public interface TSTView extends ActionListener {
 
     /**
      * Register argument as observer/listener of this
      */
-    void registerObserver(TETController controller);
+    void registerObserver(TSTController controller);
 
     /**
      * Updates output display based on String provided as argument.

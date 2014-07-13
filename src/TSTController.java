@@ -6,22 +6,22 @@ import java.util.Date;
  * 
  * @author Thomas Clark
  */
-public final class TETController {
+public final class TSTController {
 
     /**
      * Model object.
      */
-    private final TETDataModel model;
+    private final TSTDataModel model;
 
     /**
      * View object.
      */
-    private final TETView view;
+    private final TSTView view;
 
     /**
      * Constructor; connects this to the model and view.
      */
-    public TETController(TETDataModel model, TETView view) {
+    public TSTController(TSTDataModel model, TSTView view) {
         this.model = model;
         this.view = view;
     }

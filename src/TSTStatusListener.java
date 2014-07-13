@@ -8,18 +8,18 @@ import twitter4j.StatusListener;
  * 
  * @author Thomas Clark
  */
-public final class TETStatusListener implements StatusListener {
+public final class TSTStatusListener implements StatusListener {
 
     //Model
-    private final TETDataModel model;
+    private final TSTDataModel model;
 
     //Controller
-    private final TETController controller;
+    private final TSTController controller;
 
     /**
      * Default constructor.
      */
-    public TETStatusListener(TETDataModel model, TETController controller) {
+    public TSTStatusListener(TSTDataModel model, TSTController controller) {
         this.model = model;
         this.controller = controller;
     }
