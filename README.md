@@ -1,9 +1,9 @@
 #TwitterEmotionTracker
 
 ##Current Functionality
-Receives a stream of tweets containing smilely faces and frowny faces and outputs them to the console.
+Receives a stream of tweets containing smilely faces and frowny faces, records how many occur since the start time, and calculates a ratio of smiles-to-frowns.  Displayed in a simple GUI.
 
-##Intended Functionality
+##Future Functionality
 Recieves a stream of tweets containing key emotion words that can be interpreted as a spectrum.  Compares the tweet frequency of all of the words and determines the overall feeling of Twitter at that moment in time.
 
 ##Third-Party Libraries
