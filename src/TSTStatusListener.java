@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
@@ -16,12 +18,17 @@ public final class TSTStatusListener implements StatusListener {
     //Controller
     private final TSTController controller;
 
+    //View
+    private final TSTView view;
+
     /**
      * Default constructor.
      */
-    public TSTStatusListener(TSTDataModel model, TSTController controller) {
+    public TSTStatusListener(TSTDataModel model, TSTController controller,
+            TSTView view) {
         this.model = model;
         this.controller = controller;
+        this.view = view;
     }
 
     /**
@@ -39,7 +46,6 @@ public final class TSTStatusListener implements StatusListener {
 
     @Override
     public void onStatus(Status status) {
-
         if (isHappy(status.getText())) {
             this.model.incrementSmileCount();
             this.model.recordHappyOrSad(true);
@@ -47,6 +53,22 @@ public final class TSTStatusListener implements StatusListener {
             this.model.incrementFrownCount();
             this.model.recordHappyOrSad(false);
         }
+        if (this.model.tweetCounter() == 0) {
+            if (isHappy(status.getText())) {
+                this.view.tweetText().setText(
+                        "@" + status.getUser().getScreenName() + ":\n"
+                                + status.getText());
+                this.view.tweetText().setForeground(Color.WHITE);
+                this.view.tweetText().setBackground(Color.RED);
+            } else {
+                this.view.tweetText().setText(
+                        "@" + status.getUser().getScreenName() + ":\n"
+                                + status.getText());
+                this.view.tweetText().setForeground(Color.WHITE);
+                this.view.tweetText().setBackground(Color.BLUE);
+            }
+        }
+        this.model.incrementTweetCounter();
         this.controller.updateViewToMatchModel();
     }
 

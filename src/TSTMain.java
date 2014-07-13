@@ -110,7 +110,7 @@ public final class TSTMain {
         view.registerObserver(controller);
 
         //Initialize status listener
-        StatusListener listener = new TSTStatusListener(model, controller);
+        StatusListener listener = new TSTStatusListener(model, controller, view);
 
         //Tell stream what tweets to filter for
         FilterQuery fq = new FilterQuery();

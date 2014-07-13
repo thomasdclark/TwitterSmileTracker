@@ -32,6 +32,10 @@ public final class TSTDataModel {
      * measurement.
      */
     final int tweetNumber = 25;
+    /*
+     * Used to count how many tweets have been tweeted, restarts after 100
+     */
+    int tweetCounter;
 
     /**
      * Default constructor.
@@ -149,5 +153,26 @@ public final class TSTDataModel {
         } else {
             this.happyOrSad = false;
         }
+    }
+
+    /**
+     * Increases this.tweetCounter by one.
+     */
+    public void incrementTweetCounter() {
+        this.tweetCounter++;
+        /*
+         * Change this if-statement to determine how fast tweets appear on
+         * screen
+         */
+        if (this.tweetCounter == 51) {
+            this.tweetCounter = 0;
+        }
+    }
+
+    /**
+     * Returns tweetCounter
+     */
+    public int tweetCounter() {
+        return this.tweetCounter;
     }
 }

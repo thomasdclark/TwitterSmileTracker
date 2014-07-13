@@ -146,4 +146,12 @@ public final class TSTView1 extends JFrame implements TSTView {
     public JTextArea displayText() {
         return this.displayText;
     }
+
+    /**
+     * Returns the tweetText JTextArea
+     */
+    @Override
+    public JTextArea tweetText() {
+        return null;
+    }
 }

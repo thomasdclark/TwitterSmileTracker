@@ -27,4 +27,9 @@ public interface TSTView extends ActionListener {
      */
     JTextArea displayText();
 
+    /**
+     * Returns the tweetText JTextArea
+     */
+    JTextArea tweetText();
+
 }
