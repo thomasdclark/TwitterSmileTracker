@@ -96,11 +96,15 @@ public final class TSTMain {
          * Decide which view to use. Both have different displays but show the
          * same information
          */
-        //TSTView1 view = new TETView1();
-        TSTView2 view = new TSTView2();
+        //TSTView view = new TETView1();
+        TSTView view = new TSTView2();
 
-        //Create controller
-        TSTController controller = new TSTController(model, view);
+        /*
+         * Decide which controller to use. TSTController1 should be used with
+         * TSTView1 and TSTController2 should be used with TSTView2
+         */
+        //TSTController controller = new TSTController1(model, view);
+        TSTController controller = new TSTController2(model, view);
 
         //Register observer in view
         view.registerObserver(controller);
