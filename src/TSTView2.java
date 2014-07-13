@@ -1,8 +1,8 @@
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -23,7 +23,7 @@ public final class TSTView2 extends JFrame implements TSTView {
      * Constants
      */
     private static final int LINES_IN_DISPLAY_TEXT = 4,
-            LINE_LENGTHS_IN_DISPLAY_TEXT = 8, LINES_IN_TWEET_TEXT = 1,
+            LINE_LENGTHS_IN_DISPLAY_TEXT = 8, LINES_IN_TWEET_TEXT = 5,
             LINE_LENGTHS_IN_TWEET_TEXT = 8, ROWS_IN_THIS_GRID = 2,
             COLUMNS_IN_THIS_GRID = 1;
 
@@ -86,9 +86,9 @@ public final class TSTView2 extends JFrame implements TSTView {
         JScrollPane tweetTextScrollPane = new JScrollPane(this.tweetText);
 
         /*
-         * Organize main window using grid layout
+         * Organize main window by setting layout
          */
-        this.setLayout(new GridLayout(ROWS_IN_THIS_GRID, COLUMNS_IN_THIS_GRID));
+        this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
 
         /*
          * Add scroll panes and button panel to main window
