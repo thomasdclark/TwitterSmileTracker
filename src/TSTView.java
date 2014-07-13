@@ -1,5 +1,7 @@
 import java.awt.event.ActionListener;
 
+import javax.swing.JTextArea;
+
 /**
  * View interface for multiple views to be implemented from. Implements
  * ActionListener.
@@ -19,5 +21,10 @@ public interface TSTView extends ActionListener {
      * Updates output display based on String provided as argument.
      */
     void updateDisplay(String output);
+
+    /**
+     * Returns the displayText JTextArea
+     */
+    JTextArea displayText();
 
 }

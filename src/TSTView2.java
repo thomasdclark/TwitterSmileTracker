@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
- * View class for MVC
+ * View class that implements TSTView.
  * 
  * @author Thomas Clark
  */
@@ -22,8 +22,8 @@ public final class TSTView2 extends JFrame implements TSTView {
     /**
      * Constants
      */
-    private static final int LINES_IN_TEXT_AREAS = 5,
-            LINE_LENGTHS_IN_TEXT_AREAS = 30, ROWS_IN_THIS_GRID = 1,
+    private static final int LINES_IN_TEXT_AREAS = 4,
+            LINE_LENGTHS_IN_TEXT_AREAS = 8, ROWS_IN_THIS_GRID = 1,
             COLUMNS_IN_THIS_GRID = 1;
 
     /**
@@ -50,16 +50,15 @@ public final class TSTView2 extends JFrame implements TSTView {
         /*
          * Customize font of text
          */
-        Font font = new Font("Verdana", Font.BOLD, 16);
+        Font font = new Font("TimeRoman", Font.BOLD, 30);
         this.displayText.setFont(font);
-        this.displayText.setForeground(Color.BLUE);
+        this.displayText.setForeground(Color.WHITE);
+        this.displayText.setBackground(Color.RED);
 
         /*
          * Text areas should wrap lines, and outputText should be read-only
          */
         this.displayText.setEditable(false);
-        this.displayText.setLineWrap(true);
-        this.displayText.setWrapStyleWord(true);
 
         /*
          * Create scroll panes for the text areas
@@ -106,5 +105,13 @@ public final class TSTView2 extends JFrame implements TSTView {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+
+    /**
+     * Returns the displayText JTextArea
+     */
+    @Override
+    public JTextArea displayText() {
+        return this.displayText;
     }
 }

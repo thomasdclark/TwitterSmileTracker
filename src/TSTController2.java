@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * Controller class that implements TSTController.
  * 
@@ -32,11 +34,15 @@ public final class TSTController2 implements TSTController {
         String happyOrSadString;
         if (happyOrSad) {
             happyOrSadString = "HAPPY :)";
+            this.view.displayText().setForeground(Color.WHITE);
+            this.view.displayText().setBackground(Color.RED);
         } else {
             happyOrSadString = "SAD :(";
+            this.view.displayText().setForeground(Color.WHITE);
+            this.view.displayText().setBackground(Color.BLUE);
         }
 
-        String output = "\nTwitter is:\n" + happyOrSadString;
+        String output = "\n   Twitter is:\n     " + happyOrSadString;
 
         /*
          * Update the display

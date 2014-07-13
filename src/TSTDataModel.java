@@ -31,7 +31,7 @@ public final class TSTDataModel {
      * making the value more indicative of the actual instantaneous smile/frown
      * measurement.
      */
-    final int tweetNumber = 10;
+    final int tweetNumber = 25;
 
     /**
      * Default constructor.

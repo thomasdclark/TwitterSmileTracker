@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
- * View class for MVC
+ * View class that implements TSTView.
  * 
  * @author Thomas Clark
  */
@@ -137,5 +137,13 @@ public final class TSTView1 extends JFrame implements TSTView {
          * Set the cursor back to normal
          */
         this.setCursor(Cursor.getDefaultCursor());
+    }
+
+    /**
+     * Returns the displayText JTextArea
+     */
+    @Override
+    public JTextArea displayText() {
+        return this.displayText;
     }
 }
