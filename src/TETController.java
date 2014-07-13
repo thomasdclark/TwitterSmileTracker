@@ -35,12 +35,20 @@ public final class TETController {
          */
         int smileCount = this.model.smileCount();
         int frownCount = this.model.frownCount();
+        boolean happyOrSad = this.model.happyOrSad;
+        String happyOrSadString;
+        if (happyOrSad) {
+            happyOrSadString = "HAPPY :)";
+        } else {
+            happyOrSadString = "SAD :(";
+        }
         Date startDate = this.model.date();
 
         DecimalFormat df = new DecimalFormat("#.###");
         double smileToFrownRatio = (double) smileCount / frownCount;
 
-        String output = "Recording Since:  " + startDate.toString()
+        String output = "Twitter is:  " + happyOrSadString
+                + "\nRecording Since:  " + startDate.toString()
                 + "\nSmile Count:  " + smileCount + "\nFrown Count:  "
                 + frownCount + "\nSmile to Frown Ratio:  "
                 + df.format(smileToFrownRatio);

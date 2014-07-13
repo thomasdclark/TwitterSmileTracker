@@ -42,8 +42,10 @@ public final class TETStatusListener implements StatusListener {
 
         if (isHappy(status.getText())) {
             this.model.incrementSmileCount();
+            this.model.recordHappyOrSad(true);
         } else {
             this.model.incrementFrownCount();
+            this.model.recordHappyOrSad(false);
         }
         this.controller.updateViewToMatchModel();
     }

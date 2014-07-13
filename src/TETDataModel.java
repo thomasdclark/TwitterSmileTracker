@@ -13,6 +13,25 @@ public final class TETDataModel {
     int smileCount;
     int frownCount;
     Date startDate;
+    /*
+     * The happyOrSadArray records how many smile/frowns occurred in the last
+     * few tweets. The amount recorded is changed from within the tweetNumber
+     * variable. The overall result of whether there are more smiles or frowns
+     * in the array is recorded in the happyOrSad variable.
+     */
+    boolean happyOrSad; //Happy is true, sad is false
+    boolean[] happyOrSadArray; //Happy is true, sad is false
+    int arrayIndex;
+    /*
+     * tweetNumber variable determines how large the happyOrSad array is. Since
+     * Twitter *usually* tends on the side of more smiley face tweets to frowny
+     * face tweets, having a large number of values in the happyToSadArray will
+     * cause the happyToSad value to never change from happy. Decreasing the
+     * tweetNumber will cause the happyToSad value to become more volatile,
+     * making the value more indicative of the actual instantaneous smile/frown
+     * measurement.
+     */
+    final int tweetNumber = 10;
 
     /**
      * Default constructor.
@@ -23,16 +42,14 @@ public final class TETDataModel {
          */
         this.smileCount = 0;
         this.frownCount = 0;
+        this.happyOrSadArray = new boolean[this.tweetNumber];
+        this.happyOrSad = true;
+        this.arrayIndex = 0;
         this.startDate = new Date();
     }
 
     /**
      * Reports this.smileCount.
-     * 
-     * @return this.smileCount
-     * @ensures <pre>
-     * {@code smileCount = this.smileCount}
-     * </pre>
      */
     public int smileCount() {
         return this.smileCount;
@@ -40,11 +57,6 @@ public final class TETDataModel {
 
     /**
      * Reports this.frownCount.
-     * 
-     * @return this.frownCount
-     * @ensures <pre>
-     * {@code frownCount = this.frownCount}
-     * </pre>
      */
     public int frownCount() {
         return this.frownCount;
@@ -52,12 +64,6 @@ public final class TETDataModel {
 
     /**
      * Sets this.smileCount to argument.
-     * 
-     * @param input
-     *            new this.smileCount value
-     * @ensures <pre>
-     * {@code this.smileCount = input}
-     * </pre>
      */
     public void setSmileCount(int input) {
         this.smileCount = input;
@@ -65,12 +71,6 @@ public final class TETDataModel {
 
     /**
      * Sets this.frownCount to argument.
-     * 
-     * @param input
-     *            new this.frownCount value
-     * @ensures <pre>
-     * {@code this.frownCount = input}
-     * </pre>
      */
     public void setFrownCount(int input) {
         this.frownCount = input;
@@ -78,10 +78,6 @@ public final class TETDataModel {
 
     /**
      * Increases this.smileCount by one.
-     * 
-     * @ensures <pre>
-     * {@code this.smileCount = *this.smileCount++}
-     * </pre>
      */
     public void incrementSmileCount() {
         this.smileCount++;
@@ -89,10 +85,6 @@ public final class TETDataModel {
 
     /**
      * Increases this.frownCount by one.
-     * 
-     * @ensures <pre>
-     * {@code this.frownCount = *this.frownCount++}
-     * </pre>
      */
     public void incrementFrownCount() {
         this.frownCount++;
@@ -100,12 +92,6 @@ public final class TETDataModel {
 
     /**
      * Reports start date.
-     * 
-     * @return this.startDate
-     * @aliases reference returned by {@code startDate}
-     * @ensures <pre>
-     * {@code date = this.startDate}
-     * </pre>
      */
     public Date date() {
         return this.startDate;
@@ -113,12 +99,55 @@ public final class TETDataModel {
 
     /**
      * Resets the start date.
-     * 
-     * @ensures <pre>
-     * {@code this.startDate = new Date()}
-     * </pre>
      */
     public void resetDate() {
         this.startDate = new Date();
+    }
+
+    /**
+     * Sets this.arrayIndex to zero.
+     */
+    public void resetArrayIndex() {
+        this.arrayIndex = 0;
+    }
+
+    /**
+     * Increases this.arrayIndex by one.
+     */
+    public void incrementArrayIndex() {
+        this.arrayIndex++;
+    }
+
+    /**
+     * Records happyOrSad instance in array.
+     */
+    public void recordHappyOrSad(boolean happyOrSad) {
+        if (this.arrayIndex == this.tweetNumber) {
+            this.resetArrayIndex();
+        }
+        this.happyOrSadArray[this.arrayIndex] = happyOrSad;
+        this.incrementArrayIndex();
+        this.calculateHappyOrSad();
+    }
+
+    /**
+     * Calculates whether Twitter is happyOrSad.
+     */
+    public void calculateHappyOrSad() {
+        int happyCount = 0;
+        int sadCount = 0;
+        for (int i = 0; i < this.tweetNumber; i++) {
+            if (this.happyOrSadArray[i]) {
+                happyCount++;
+            } else {
+                sadCount++;
+            }
+        }
+
+        if (happyCount >= sadCount) {
+            this.happyOrSad = true;
+        } else {
+            this.happyOrSad = false;
+        }
     }
 }

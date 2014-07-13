@@ -23,7 +23,7 @@ public final class TETView extends JFrame implements TETActionListener {
     /**
      * Constants
      */
-    private static final int LINES_IN_TEXT_AREAS = 4,
+    private static final int LINES_IN_TEXT_AREAS = 5,
             LINE_LENGTHS_IN_TEXT_AREAS = 30, ROWS_IN_BUTTON_PANEL_GRID = 1,
             COLUMNS_IN_BUTTON_PANEL_GRID = 1, ROWS_IN_THIS_GRID = 2,
             COLUMNS_IN_THIS_GRID = 1;
@@ -117,6 +117,7 @@ public final class TETView extends JFrame implements TETActionListener {
         this.displayText.setText(output);
     }
 
+    @Override
     public void actionPerformed(ActionEvent event) {
         /*
          * Set cursor to indicate computation on-going
