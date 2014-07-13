@@ -1,7 +1,10 @@
 import java.awt.event.ActionListener;
 
 /**
- * TETView interface that implements ActionListener
+ * View interface for multiple views to be implemented from. Implements
+ * ActionListener.
+ * 
+ * Classes that implement this interface: TSTView1, TSTView2
  * 
  * @author Thomas Clark
  */

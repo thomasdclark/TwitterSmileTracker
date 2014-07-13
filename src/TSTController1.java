@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
- * Controller class for MVC
+ * Controller class that implements TSTController.
  * 
  * @author Thomas Clark
  */

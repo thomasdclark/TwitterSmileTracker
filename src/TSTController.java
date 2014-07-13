@@ -1,5 +1,7 @@
 /**
- * Controller interface
+ * Controller interface for multiple controllers to be implemented from.
+ * 
+ * Classes that implement this interface: TSTController1, TSTController2
  * 
  * @author Thomas Clark
  */
