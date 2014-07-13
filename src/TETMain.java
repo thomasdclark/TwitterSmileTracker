@@ -92,8 +92,12 @@ public final class TETMain {
         //Create data model
         TETDataModel model = new TETDataModel();
 
-        //Create view
-        TETView view = new TETView();
+        /*
+         * Decide which view to use. Both have different displays but show the
+         * same information
+         */
+        //TETView1 view = new TETView1();
+        TETView2 view = new TETView2();
 
         //Create controller
         TETController controller = new TETController(model, view);
