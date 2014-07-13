@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
 import twitter4j.FilterQuery;
-import twitter4j.StallWarning;
-import twitter4j.Status;
-import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
 import twitter4j.TwitterException;
 import twitter4j.TwitterStream;
@@ -11,17 +8,17 @@ import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 /**
- * Simple Twitter stream application that recieves a stream of tweets containing smiley faces
- * and frowny faces and outputs them to the console.
+ * Simple Twitter stream application that recieves a stream of tweets containing
+ * smiley faces and frowny faces and outputs them to the console.
  * 
  * @author Thomas Clark
  */
-public final class TwitterEmotionTrackerMain {
+public final class TETMain {
 
     /**
      * Private constructor so this utility class cannot be instantiated.
      */
-    private TwitterEmotionTrackerMain() {
+    private TETMain() {
     }
 
     /**
@@ -53,36 +50,11 @@ public final class TwitterEmotionTrackerMain {
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build())
                 .getInstance();
 
-        //Determine what to do on each event
-        StatusListener listener = new StatusListener() {
-            @Override
-            public void onStatus(Status status) {
-                System.out.println(status.getUser().getName() + " : "
-                        + status.getText());
-            }
+        //Create data model
+        TETDataModel model = new TETDataModel();
 
-            @Override
-            public void onDeletionNotice(
-                    StatusDeletionNotice statusDeletionNotice) {
-            }
-
-            @Override
-            public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
-            }
-
-            @Override
-            public void onException(Exception ex) {
-                ex.printStackTrace();
-            }
-
-            @Override
-            public void onScrubGeo(long arg0, long arg1) {
-            }
-
-            @Override
-            public void onStallWarning(StallWarning arg0) {
-            }
-        };
+        //Initialize status listener
+        StatusListener listener = new TETStatusListener(model);
 
         //Tell stream what tweets to filter for
         FilterQuery fq = new FilterQuery();
