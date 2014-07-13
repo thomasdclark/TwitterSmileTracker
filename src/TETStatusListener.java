@@ -10,23 +10,23 @@ import twitter4j.StatusListener;
  */
 public final class TETStatusListener implements StatusListener {
 
+    //Model
     private final TETDataModel model;
+
+    //Controller
+    private final TETController controller;
 
     /**
      * Default constructor.
      */
-    public TETStatusListener(TETDataModel model) {
+    public TETStatusListener(TETDataModel model, TETController controller) {
         this.model = model;
+        this.controller = controller;
     }
 
     /**
      * Function to tell if the input tweet (string) contains a smiley face
      * (happy). If it does not, it is assumed that it contains a frowny face.
-     * 
-     * @param input
-     *            the input string containing the tweet content
-     * 
-     * @return a boolean that is true if the tweet contains a smiley face.
      */
     private static boolean isHappy(String input) {
         boolean isHappy = false;
@@ -45,14 +45,7 @@ public final class TETStatusListener implements StatusListener {
         } else {
             this.model.incrementFrownCount();
         }
-
-        int smileCount = this.model.smileCount();
-        int frownCount = this.model.frownCount();
-        double ratio = (double) smileCount / frownCount;
-
-        //Print results to console.  I wish I knew how to refresh the console.
-        System.out.println("Smile Count: " + smileCount + "  Frown Count: "
-                + frownCount + "  Ratio: " + ratio);
+        this.controller.updateViewToMatchModel();
     }
 
     @Override

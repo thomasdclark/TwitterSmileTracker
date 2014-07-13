@@ -92,8 +92,17 @@ public final class TETMain {
         //Create data model
         TETDataModel model = new TETDataModel();
 
+        //Create view
+        TETView view = new TETView();
+
+        //Create controller
+        TETController controller = new TETController(model, view);
+
+        //Register observer in view
+        view.registerObserver(controller);
+
         //Initialize status listener
-        StatusListener listener = new TETStatusListener(model);
+        StatusListener listener = new TETStatusListener(model, controller);
 
         //Tell stream what tweets to filter for
         FilterQuery fq = new FilterQuery();
