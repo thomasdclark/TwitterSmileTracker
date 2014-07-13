@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
- * Controller class that implements TSTController.
+ * Controller class that implements TSTController. To be used with TSTView1.
  * 
  * @author Thomas Clark
  */

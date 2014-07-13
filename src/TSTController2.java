@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 /**
- * Controller class that implements TSTController.
+ * Controller class that implements TSTController. To be used with TSTView2.
  * 
  * @author Thomas Clark
  */

@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
- * View class that implements TSTView.
+ * View class that implements TSTView. To be used with TSTController1.
  * 
  * @author Thomas Clark
  */

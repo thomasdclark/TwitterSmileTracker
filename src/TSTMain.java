@@ -11,8 +11,9 @@ import twitter4j.conf.ConfigurationBuilder;
 
 /**
  * Simple Twitter stream application that recieves a stream of tweets containing
- * smiley faces and frowny faces, counts how many of each are occurring, and
- * prints the results to the console.
+ * smiley faces and frowny faces, counts how many of each are occurring during a
+ * period of tweets, and determines if Twitter is happy or sad during that
+ * period.
  * 
  * @author Thomas Clark
  */
