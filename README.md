@@ -10,10 +10,7 @@ The simple GUI displays on the top whether Twitter is happy (red) or sad (blue) 
 ![TwitterSmileTracker](https://raw.githubusercontent.com/thomasdclark/TwitterSmileTracker/master/resources/TwitterSmileTracker.gif)
 
 ##Future Goals
-* Add additional emotions rather than just happy and sad
-* Graph the amount of smiley faces and frowny faces over time
-* Save data after analysis rather than discarding it
-* Improve the GUI
+This repository was forked to make [TwitterEmotionTracker](https://github.com/thomasdclark/TwitterEmotionTracker), which is where this project will be further developed with additional functionality.
 
 ##Third-Party Libraries
 Need to be downloaded from respective sites prior to use:
