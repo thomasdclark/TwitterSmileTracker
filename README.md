@@ -12,6 +12,6 @@ The simple GUI displays on the top whether Twitter is happy (red) or sad (blue) 
 ##Future Goals
 This repository was forked to make [TwitterEmotionTracker](https://github.com/thomasdclark/TwitterEmotionTracker), which is where this project will be further developed with additional functionality.
 
-##Third-Party Libraries
+##Dependencies
 Need to be downloaded from respective sites prior to use:
 * [Twitter4J](http://twitter4j.org)
